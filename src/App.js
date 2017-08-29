@@ -17,10 +17,21 @@ class App extends Component {
     this.setState({messages: newMessages})
   }
 
+  check(id) {
+    const newMessages = messages.map(message => {
+      if (message.id === id) {
+        message.selected = !message.selected
+      }
+      return message;
+    })
+    this.setState({messages: newMessages})
+  }
+
   render() {
     return (
       <MessageList messages={messages}
-                   star={this.star.bind(this)}/>
+                   star={this.star.bind(this)}
+                   check={this.check.bind(this)}/>
     );
   }
 }

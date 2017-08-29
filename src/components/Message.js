@@ -9,16 +9,12 @@ const Message = (props) => {
     return <span key={i} className="label label-warning">{label}</span>;
   })
 
-  // const starMessage = () => {
-  //   props.star(props.message.id)
-  // }
-
   return (
     <div className={messageClass}>
       <div className="col-xs-1">
         <div className="row">
           <div className="col-xs-2">
-            <input type="checkbox" />
+            <input type="checkbox" onClick={props.check.bind(null, props.message.id)} checked={props.message.selected}/>
           </div>
           <div className="col-xs-2">
             <i onClick={props.star.bind(null, props.message.id)}
